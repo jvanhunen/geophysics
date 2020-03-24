@@ -1,296 +1,160 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-    <meta charset="utf-8">
-
-    <title>environment.yml (editing)</title>
-    <link id="favicon" rel="shortcut icon" type="image/x-icon" href="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/base/images/favicon-file.ico?v=e2776a7f45692c839d6eea7d7ff6f3b2">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <link rel="stylesheet" href="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/components/jquery-ui/themes/smoothness/jquery-ui.min.css?v=3c2a865c832a1322285c55c6ed99abb2" type="text/css" />
-    <link rel="stylesheet" href="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/components/jquery-typeahead/dist/jquery.typeahead.min.css?v=9df10041c3e07da766e7c48dd4c35e4a" type="text/css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
-<link rel="stylesheet" href="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/components/codemirror/lib/codemirror.css?v=fc217d502b05f65616356459c0ec1d62">
-<link rel="stylesheet" href="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/components/codemirror/addon/dialog/dialog.css?v=c89dce10b44d2882a024e7befc2b63f5">
-
-    <link rel="stylesheet" href="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/style/style.min.css?v=2165fc0d023f0baf5cce3b2a6db40e22" type="text/css"/>
-    
-
-    <link rel="stylesheet" href="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/custom/custom.css" type="text/css" />
-    <script src="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/components/es6-promise/promise.min.js?v=f004a16cb856e0ff11781d01ec5ca8fe" type="text/javascript" charset="utf-8"></script>
-    <script src="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/components/react/react.production.min.js?v=34f96ffc962a7deecc83037ccb582b58" type="text/javascript"></script>
-    <script src="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/components/react/react-dom.production.min.js?v=b14d91fb641317cda38dbc9dbf985ab4" type="text/javascript"></script>
-    <script src="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/components/create-react-class/index.js?v=94feb9971ce6d26211729abc43f96cd2" type="text/javascript"></script>
-    <script src="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/components/requirejs/require.js?v=951f856e81496aaeec2e71a1c2c0d51f" type="text/javascript" charset="utf-8"></script>
-    <script>
-      require.config({
-          
-          urlArgs: "v=20200324162823",
-          
-          baseUrl: '/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/',
-          paths: {
-            'auth/js/main': 'auth/js/main.min',
-            custom : '/binder/jupyter/user/stefanazzz-geophys-e8clzzin/custom',
-            nbextensions : '/binder/jupyter/user/stefanazzz-geophys-e8clzzin/nbextensions',
-            kernelspecs : '/binder/jupyter/user/stefanazzz-geophys-e8clzzin/kernelspecs',
-            underscore : 'components/underscore/underscore-min',
-            backbone : 'components/backbone/backbone-min',
-            jed: 'components/jed/jed',
-            jquery: 'components/jquery/jquery.min',
-            json: 'components/requirejs-plugins/src/json',
-            text: 'components/requirejs-text/text',
-            bootstrap: 'components/bootstrap/dist/js/bootstrap.min',
-            bootstraptour: 'components/bootstrap-tour/build/js/bootstrap-tour.min',
-            'jquery-ui': 'components/jquery-ui/jquery-ui.min',
-            moment: 'components/moment/min/moment-with-locales',
-            codemirror: 'components/codemirror',
-            termjs: 'components/xterm.js/xterm',
-            typeahead: 'components/jquery-typeahead/dist/jquery.typeahead.min',
-          },
-          map: { // for backward compatibility
-              "*": {
-                  "jqueryui": "jquery-ui",
-              }
-          },
-          shim: {
-            typeahead: {
-              deps: ["jquery"],
-              exports: "typeahead"
-            },
-            underscore: {
-              exports: '_'
-            },
-            backbone: {
-              deps: ["underscore", "jquery"],
-              exports: "Backbone"
-            },
-            bootstrap: {
-              deps: ["jquery"],
-              exports: "bootstrap"
-            },
-            bootstraptour: {
-              deps: ["bootstrap"],
-              exports: "Tour"
-            },
-            "jquery-ui": {
-              deps: ["jquery"],
-              exports: "$"
-            }
-          },
-          waitSeconds: 30,
-      });
-
-      require.config({
-          map: {
-              '*':{
-                'contents': 'services/contents',
-              }
-          }
-      });
-
-      // error-catching custom.js shim.
-      define("custom", function (require, exports, module) {
-          try {
-              var custom = require('custom/custom');
-              console.debug('loaded custom.js');
-              return custom;
-          } catch (e) {
-              console.error("error loading custom.js", e);
-              return {};
-          }
-      })
-
-    document.nbjs_translations = {"domain": "nbjs", "locale_data": {"nbjs": {"": {"domain": "nbjs"}}}};
-    document.documentElement.lang = navigator.language.toLowerCase();
-    </script>
-
-    
-    
-
-</head>
-
-<body class="edit_app "
- 
-data-base-url="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/"
-data-file-path="environment.yml"
-
-  
-    data-jupyter-api-token="8J360j7oSr-lSBGuCRADFg"
-  
- 
-
-dir="ltr">
-
-<noscript>
-    <div id='noscript'>
-      Jupyter Notebook requires JavaScript.<br>
-      Please enable it to proceed. 
-  </div>
-</noscript>
-
-<div id="header" role="navigation" aria-label="Top Menu">
-  <div id="header-container" class="container">
-  <div id="ipython_notebook" class="nav navbar-brand"><a href="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/tree?token=8J360j7oSr-lSBGuCRADFg" title='dashboard'>
-      <img src='/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/base/images/logo.png?v=641991992878ee24c6f3826e81054a0f' alt='Jupyter Notebook'/>
-  </a></div>
-
-  
-
-<span id="save_widget" class="pull-left save_widget">
-    <span class="filename"></span>
-    <span class="last_modified"></span>
-</span>
-
-
-  
-
-  
-  
-
-
-
-
-
-<span>
-    <a id="visit-repo-link" href="https://github.com/stefanazzz/Geophys/tree/840c3122d5a3e6f7a4b8b9c162d6e56dc234b4d3" class="btn btn-default btn-sm navbar-btn" target="_blank"
-       style="margin-right: 2px; margin-left: 4px;">Visit repo</a></span>
-
-
-
-<span>
-    <button id="copy-binder-link" title="Copy binder link to clipboard" class="btn btn-default btn-sm navbar-btn"
-            style="margin-right: 0; margin-left: 2px;"
-            data-url="https://gesis.mybinder.org/binder/v2/gh/stefanazzz/Geophys/840c3122d5a3e6f7a4b8b9c162d6e56dc234b4d3" onclick="copy_link_into_clipboard(this);">
-      Copy Binder link
-    </button>
-</span>
-
-
-
-  
-  </div>
-  <div class="header-bar"></div>
-
-  
-
-<div id="menubar-container" class="container">
-  <div id="menubar">
-    <div id="menus" class="navbar navbar-default" role="navigation">
-      <div class="container-fluid">
-          <p  class="navbar-text indicator_area">
-          <span id="current-mode" >current mode</span>
-          </p>
-        <button type="button" class="btn btn-default navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <i class="fa fa-bars"></i>
-          <span class="navbar-text">Menu</span>
-        </button>
-        <ul class="nav navbar-nav navbar-right">
-          <li id="notification_area"></li>
-        </ul>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">File</a>
-              <ul id="file-menu" class="dropdown-menu">
-                <li id="new-file"><a href="#">New</a></li>
-                <li id="save-file"><a href="#">Save</a></li>
-                <li id="rename-file"><a href="#">Rename</a></li>
-                <li id="download-file"><a href="#">Download</a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Edit</a>
-              <ul id="edit-menu" class="dropdown-menu">
-                <li id="menu-find"><a href="#">Find</a></li>
-                <li id="menu-replace"><a href="#">Find &amp; Replace</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Key Map</li>
-                <li id="menu-keymap-default"><a href="#">Default<i class="fa"></i></a></li>
-                <li id="menu-keymap-sublime"><a href="#">Sublime Text<i class="fa"></i></a></li>
-                <li id="menu-keymap-vim"><a href="#">Vim<i class="fa"></i></a></li>
-                <li id="menu-keymap-emacs"><a href="#">emacs<i class="fa"></i></a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">View</a>
-              <ul id="view-menu" class="dropdown-menu">
-              <li id="toggle_header" title="Show/Hide the logo and notebook title (above menu bar)">
-              <a href="#">Toggle Header</a></li>
-              <li id="menu-line-numbers"><a href="#">Toggle Line Numbers</a></li>
-              </ul>
-            </li>
-            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Language</a>
-              <ul id="mode-menu" class="dropdown-menu">
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="lower-header-bar"></div>
-
-
-</div>
-
-<div id="site">
-
-
-<div id="texteditor-backdrop">
-<div id="texteditor-container" class="container"></div>
-</div>
-
-
-</div>
-
-
-
-
-
-
-    
-
-<script type='text/javascript'>
-    function copy_link_into_clipboard(b) {
-        var $temp = $("<input>");
-        $(b).parent().append($temp);
-        $temp.val($(b).data('url')).select();
-        document.execCommand("copy");
-        $temp.remove();
-    }
-</script>
-
-
-
-<script src="/binder/jupyter/user/stefanazzz-geophys-e8clzzin/static/edit/js/main.min.js?v=e3253dc1d2a1f445711555bd8ea58ada" type="text/javascript" charset="utf-8"></script>
-
-
-<script type='text/javascript'>
-  function _remove_token_from_url() {
-    if (window.location.search.length <= 1) {
-      return;
-    }
-    var search_parameters = window.location.search.slice(1).split('&');
-    for (var i = 0; i < search_parameters.length; i++) {
-      if (search_parameters[i].split('=')[0] === 'token') {
-        // remote token from search parameters
-        search_parameters.splice(i, 1);
-        var new_search = '';
-        if (search_parameters.length) {
-          new_search = '?' + search_parameters.join('&');
-        }
-        var new_url = window.location.origin + 
-                      window.location.pathname + 
-                      new_search + 
-                      window.location.hash;
-        window.history.replaceState({}, "", new_url);
-        return;
-      }
-    }
-  }
-  _remove_token_from_url();
-</script>
-</body>
-
-</html>
+name: pybert
+channels:
+  - conda-forge
+  - gimli
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=conda_forge
+  - _openmp_mutex=4.5=1_llvm
+  - appdirs=1.4.3=py_1
+  - attrs=19.3.0=py_0
+  - backcall=0.1.0=py_0
+  - binutils_impl_linux-64=2.33.1=h53a641e_8
+  - binutils_linux-64=2.33.1=h9595d00_17
+  - bleach=3.1.1=py_0
+  - bzip2=1.0.8=h516909a_2
+  - ca-certificates=2019.11.28=hecc5488_0
+  - certifi=2019.11.28=py37_0
+  - cftime=1.0.4.2=py37hc1659b7_0
+  - curl=7.68.0=hf8cf82a_0
+  - cycler=0.10.0=py_2
+  - dbus=1.13.6=he372182_0
+  - decorator=4.4.2=py_0
+  - defusedxml=0.6.0=py_0
+  - entrypoints=0.3=py37_1000
+  - expat=2.2.9=he1b5a44_2
+  - fontconfig=2.13.1=he4413a7_1000
+  - freetype=2.10.0=he983fc9_1
+  - future=0.18.2=py37_0
+  - gcc_impl_linux-64=7.3.0=hd420e75_5
+  - gcc_linux-64=7.3.0=h553295d_17
+  - gettext=0.19.8.1=hc5be6a0_1002
+  - glib=2.58.3=py37h6f030ca_1002
+  - gst-plugins-base=1.14.5=h0935bb2_2
+  - gstreamer=1.14.5=h36ae1b5_2
+  - gxx_impl_linux-64=7.3.0=hdf63c60_5
+  - gxx_linux-64=7.3.0=h553295d_17
+  - h5py=2.10.0=nompi_py37h513d04c_102
+  - hdf4=4.2.13=hf30be14_1003
+  - hdf5=1.10.5=nompi_h3c11f04_1104
+  - icu=58.2=hf484d3e_1000
+  - imageio=2.8.0=py_0
+  - importlib_metadata=1.5.0=py37_0
+  - ipykernel=5.1.4=py37h5ca1d4c_0
+  - ipython=7.13.0=py37h5ca1d4c_0
+  - ipython_genutils=0.2.0=py_1
+  - jedi=0.16.0=py37_0
+  - jinja2=2.11.1=py_0
+  - jpeg=9c=h14c3975_1001
+  - jsoncpp=1.8.4=hc9558a2_1002
+  - jsonschema=3.2.0=py37_0
+  - jupyter_client=6.0.0=py_0
+  - jupyter_core=4.6.3=py37_0
+  - kiwisolver=1.1.0=py37hc9558a2_0
+  - krb5=1.16.4=h2fd8d38_0
+  - ld_impl_linux-64=2.33.1=h53a641e_8
+  - libblas=3.8.0=15_openblas
+  - libboost=1.67.0=h46d08c1_4
+  - libcblas=3.8.0=15_openblas
+  - libcurl=7.68.0=hda55be3_0
+  - libedit=3.1.20170329=hf8c457e_1001
+  - libffi=3.2.1=he1b5a44_1006
+  - libgcc-ng=9.2.0=h24d8f2e_2
+  - libgfortran-ng=7.3.0=hdf63c60_5
+  - libgomp=9.2.0=h24d8f2e_2
+  - libiconv=1.15=h516909a_1005
+  - liblapack=3.8.0=15_openblas
+  - libnetcdf=4.6.2=h303dfb8_1003
+  - libopenblas=0.3.8=h5ec1e0e_0
+  - libpng=1.6.37=hed695b0_0
+  - libsodium=1.0.17=h516909a_0
+  - libssh2=1.8.2=h22169c7_2
+  - libstdcxx-ng=9.2.0=hdf63c60_2
+  - libtiff=4.1.0=hc3755c2_3
+  - libuuid=2.32.1=h14c3975_1000
+  - libxcb=1.13=h14c3975_1002
+  - libxml2=2.9.9=h13577e0_2
+  - libxslt=1.1.32=hae48121_1003
+  - llvm-openmp=9.0.1=hc9558a2_2
+  - lxml=4.4.1=py37h7ec2d77_0
+  - lz4-c=1.8.3=he1b5a44_1001
+  - markupsafe=1.1.1=py37h516909a_0
+  - matplotlib=3.1.1=py37_0
+  - matplotlib-base=3.1.1=py37hfd891ef_0
+  - meshio=4.0.4=py_0
+  - metis=5.1.0=he1b5a44_1005
+  - mistune=0.8.4=py37h516909a_1000
+  - more-itertools=8.2.0=py_0
+  - nbconvert=5.6.1=py37_0
+  - nbformat=5.0.4=py_0
+  - ncurses=6.1=hf484d3e_1002
+  - netcdf4=1.5.1.2=py37h73a1b54_1
+  - notebook=6.0.3=py37_0
+  - numpy=1.16.5=py37h95a1406_0
+  - olefile=0.46=py_0
+  - openblas=0.3.8=he1df0ab_0
+  - openssl=1.1.1d=h516909a_0
+  - packaging=20.1=py_0
+  - pandas=1.0.1=py37hb3f55d8_0
+  - pandoc=2.9.2=0
+  - pandocfilters=1.4.2=py_1
+  - parso=0.6.2=py_0
+  - pcre=8.44=he1b5a44_0
+  - pexpect=4.8.0=py37_0
+  - pickleshare=0.7.5=py37_1000
+  - pillow=7.0.0=py37hefe7db6_0
+  - pip=20.0.2=py_2
+  - pluggy=0.13.0=py37_0
+  - prometheus_client=0.7.1=py_0
+  - prompt_toolkit=3.0.3=py_0
+  - pthread-stubs=0.4=h14c3975_1001
+  - ptyprocess=0.6.0=py_1001
+  - py=1.8.1=py_0
+  - py-boost=1.67.0=py37h04863e7_4
+  - pybert=2.2.11_0=py37hf484d3e_0
+  - pygimli=1.0.12=np116py37hf484d3e_1
+  - pygments=2.5.2=py_0
+  - pyparsing=2.4.6=py_0
+  - pyqt=5.9.2=py37hcca6a23_4
+  - pyrsistent=0.15.7=py37h516909a_0
+  - pytest=5.3.5=py37_1
+  - python=3.7.6=h357f687_4_cpython
+  - python-dateutil=2.8.1=py_0
+  - pytz=2019.3=py_0
+  - pyvista=0.23.1=py_1
+  - pyzmq=19.0.0=py37h1768529_0
+  - qt=5.9.7=h52cfd70_2
+  - readline=8.0=hf8c457e_0
+  - scipy=1.4.1=py37h921218d_0
+  - scooby=0.5.2=py_0
+  - send2trash=1.5.0=py_0
+  - setuptools=45.2.0=py37_0
+  - sip=4.19.8=py37hf484d3e_1000
+  - six=1.14.0=py37_0
+  - sqlite=3.30.1=hcee41ef_0
+  - suitesparse=5.6.0=h717dc36_0
+  - tbb=2020.1=hc9558a2_0
+  - terminado=0.8.3=py37_0
+  - testpath=0.4.4=py_0
+  - tetgen=1.5.1=he1b5a44_1000
+  - tk=8.6.10=hed695b0_0
+  - tornado=6.0.4=py37h516909a_0
+  - traitlets=4.3.3=py37_0
+  - vtk=8.2.0=py37hfdee58b_203
+  - wcwidth=0.1.8=py_0
+  - webencodings=0.5.1=py_1
+  - wheel=0.34.2=py_1
+  - xorg-kbproto=1.0.7=h14c3975_1002
+  - xorg-libice=1.0.10=h516909a_0
+  - xorg-libsm=1.2.3=h84519dc_1000
+  - xorg-libx11=1.6.9=h516909a_0
+  - xorg-libxau=1.0.9=h14c3975_0
+  - xorg-libxdmcp=1.1.3=h516909a_0
+  - xorg-libxt=1.2.0=h516909a_0
+  - xorg-xproto=7.0.31=h14c3975_1007
+  - xz=5.2.4=h14c3975_1001
+  - zeromq=4.3.2=he1b5a44_2
+  - zipp=3.1.0=py_0
+  - zlib=1.2.11=h516909a_1006
+  - zstd=1.4.4=h3b9ef0a_1
+prefix: /home/stefan/anaconda3/envs/pybert
